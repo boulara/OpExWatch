@@ -1,0 +1,19 @@
+{
+  "name": "OpExWatch",
+  "version": "0.0.1",
+  "description": "Simple app to check options DTE",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rick Boulanger",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "~1.0.12"
+  },
+  "dependencies": {
+    "node-schedule": "~0.1.13",
+    "date-utils": "~1.2.15",
+    "node-pushover": "~0.2.2"
+  }
+}
