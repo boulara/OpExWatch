@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Simple app to check options DTE",
   "main": "app.js",
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/boulara/OpExWatch"
   },
