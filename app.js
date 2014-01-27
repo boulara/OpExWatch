@@ -14,9 +14,6 @@ var Pushover = require('node-pushover');
 var fs = require('fs');
 var config = require('./config.json');
 
-
-console.log(config.user+"333");
-
 var today = new Date();
 var ExpoCal = [
 	new Date(2014, 0, 17),
@@ -36,7 +33,6 @@ var ExpoCal = [
 var d = new Date();
 var dateDiff;
 
-fncWriteLog(d,111);
 
 for (var i = 0; i < ExpoCal.length; i++){
 
@@ -71,7 +67,7 @@ for (var i = 0; i < ExpoCal.length; i++){
 	//alert where their are between 40 and 50 days to expo
 }
 
-
+fncWriteLog(d,str);
 process.on('uncaughtException', function(err){
 	console.log(err);
 });
