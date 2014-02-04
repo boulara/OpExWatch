@@ -45,16 +45,11 @@ for (var i = 0; i < ExpoCal.length; i++){
 		console.log(str);
 	
 	}
-	//console.log("Their are " + dateDiff + " days until " + ExpoCal[i].getMonthAbbr() + " experation");
-
-	//alert when less then X number of days to expo
-
 
 	if (dateDiff < 22 && dateDiff > 14){
 		var str = ("FYI: watch your " + monthAbbr + " options; " + dateDiff+ " DTE")
 		console.log(str)
-	fncPushover(str);
-
+		fncPushover(str);
 	}
 
 	if (dateDiff < 13 && dateDiff > 0) {
@@ -68,12 +63,12 @@ for (var i = 0; i < ExpoCal.length; i++){
 }
 
 fncWriteLog(d,str);
+
 process.on('uncaughtException', function(err){
 	console.log(err);
 });
 
 // FUNCTIONS
-
 function fncPushover(msg){
 	var push = new Pushover({
 		token: config.token,
