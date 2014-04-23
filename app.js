@@ -34,6 +34,32 @@ var d = new Date();
 var dateDiff;
 
 
+
+var BradleyModelDates = [
+	new Date(2014, 0, 1),
+	new Date(2014, 0, 9),
+	new Date(2014, 2, 22),
+	new Date(2014, 3, 6),
+	new Date(2014, 3, 27),
+	new Date(2014, 4, 6),
+	new Date(2014, 6, 16),
+	new Date(2014, 9, 9),
+	new Date(2014, 9, 16),
+	new Date(2014, 10, 20),
+	new Date(2014, 11, 10),
+	new Date(2014, 11, 26)
+];
+
+for (var i = 0; i < BradleyModelDates.length; i++){
+		dateDiff = (d.getDaysBetween(BradleyModelDates[i]) + 1);
+		if (dateDiff > 0 && dateDiff < 7){
+			var str = "FYI: A Bradley Turn date is coming in " + dateDiff + " days";
+			fncPushover(str);
+			console.log('hi: ' + str);
+		}
+		
+}
+
 for (var i = 0; i < ExpoCal.length; i++){
 
 	var monthAbbr = ExpoCal[i].getMonthName();
