@@ -12,7 +12,7 @@ require('date-utils');
 
 var Pushover = require('node-pushover');
 var fs = require('fs');
-var config = require('./config.json');
+var config = require('../pushover/config.json');
 
 var today = new Date();
 var ExpoCal = [
