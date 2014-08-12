@@ -124,7 +124,7 @@ for (var i = 0; i < ExpoCal.length; i++){
 			once = false;
 			fncPushover(str);
 		} else if (frontMonth.MagicNumber >= backMonth.MagicNumber && frontMonth && backMonth && once){
-			var str = "FYI: " + backMonth.Name + " options are in play now (" + backMonth.DTE + ")"; 
+			var str = "FYI: " + backMonth.Name + " BM options are in play now (" + backMonth.DTE + ")"; 
 			console.log(str);
 			once = false;
 			fncPushover(str);
