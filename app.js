@@ -32,8 +32,9 @@ var ExpoCal = [
 
 var d = new Date();
 var dateDiff;
-
-
+var frontMonth = {};
+var backMonth = {};
+var once = true;
 
 var BradleyModelDates = [
 	new Date(2014, 0, 1),
@@ -49,13 +50,12 @@ var BradleyModelDates = [
 	new Date(2014, 11, 10),
 	new Date(2014, 11, 26)
 ];
-
+//Code to check for Bradley Date Countdown
 for (var i = 0; i < BradleyModelDates.length; i++){
 		dateDiff = (d.getDaysBetween(BradleyModelDates[i]) + 1);
 		if (dateDiff > 0 && dateDiff < 7){
 			var str = "FYI: A Bradley Turn date is coming in " + dateDiff + " days";
 			fncPushover(str);
-			console.log('hi: ' + str);
 		}
 		
 }
@@ -65,8 +65,9 @@ for (var i = 0; i < ExpoCal.length; i++){
 	var monthAbbr = ExpoCal[i].getMonthName();
 	//console.log(ExpoCal[i]);
 	dateDiff = (d.getDaysBetween(ExpoCal[i]) + 1);
+	//console.log(dateDiff + "days until " + monthAbbr + " Expo");
 	if (dateDiff > 40 && dateDiff < 60){
-		var str = "Get ready to SELL; its " + dateDiff + " DTE until " + monthAbbr + " expo"
+		var str = "Get ready to SELL; it's " + dateDiff + " DTE until " + monthAbbr + " expo"
 		fncPushover(str);
 		console.log(str);
 	
@@ -78,12 +79,57 @@ for (var i = 0; i < ExpoCal.length; i++){
 		fncPushover(str);
 	}
 
-	if (dateDiff < 13 && dateDiff > 0) {
+	if (dateDiff < 13 && dateDiff > 5) {
 		var str = (monthAbbr + " is comming in " + dateDiff +" days; close out your positions");
 		console.log(str);
 		fncPushover(str);
 	}
 
+	if (dateDiff <= 5 && dateDiff > 0) {
+		var str = ("Okay Dummy, " + dateDiff + " DTE " + monthAbbr + " Expo - CLOSE OR ROLE NOW!");
+		console.log(str);
+		fncPushover(str);
+	}
+
+	
+
+	//Find Front Month
+	if (dateDiff > 15 && dateDiff <= 50){
+		frontMonth = {
+			"DTE": dateDiff,
+			"Name": monthAbbr,
+			"MagicNumber": Math.abs(dateDiff - 50.5)
+		};
+
+		console.log("Front Month: " + frontMonth.MagicNumber);
+	}
+	//Find Back Month
+	if(dateDiff >= 50 && dateDiff <= 70){
+		backMonth = {
+			"DTE": dateDiff,
+			"Name": monthAbbr,
+			"MagicNumber": Math.abs(dateDiff - 50.5)
+		};
+		console.log("Back Month: " + backMonth.MagicNumber);
+	}
+
+	//console.log(backMonth.MagicNumber);
+	//Find Pefered Month
+	if ((typeof(frontMonth.MagicNumber) != "undefined" && typeof(backMonth.MagicNumber) != "undefined") && once){
+		//console.log("###" + typeof frontMonth.MagicNumber);
+		//console.log("FM: " + frontMonth.MagicNumber + " /// " + backMonth.MagicNumber);
+		if (frontMonth.MagicNumber < backMonth.MagicNumber){
+			var str = "FYI: " + frontMonth.Name + " FM options are in play now (" + frontMonth.DTE + ")"; 
+			console.log(str);
+			once = false;
+			fncPushover(str);
+		} else if (frontMonth.MagicNumber >= backMonth.MagicNumber && frontMonth && backMonth && once){
+			var str = "FYI: " + backMonth.Name + " options are in play now (" + backMonth.DTE + ")"; 
+			console.log(str);
+			once = false;
+			fncPushover(str);
+		}
+	}
 
 	//alert where their are between 40 and 50 days to expo
 }
