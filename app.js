@@ -32,6 +32,15 @@ var ExpoCal = [
 	new Date(2015, 1, 20),
 	new Date(2015, 2, 20),
 	new Date(2015, 3, 17),
+	new Date(2015, 4, 17),
+	new Date(2015, 5, 15),
+	new Date(2015, 6, 19),
+	new Date(2015, 7, 17),
+	new Date(2015, 8, 21),
+	new Date(2015, 9, 18),
+	new Date(2015, 10, 16),
+	new Date(2015, 11, 20),
+	new Date(2015, 12, 18),
 	];
 
 var d = new Date();
