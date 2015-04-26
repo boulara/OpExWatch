@@ -132,12 +132,12 @@ for (var i = 0; i < ExpoCal.length; i++){
 		//console.log("###" + typeof frontMonth.MagicNumber);
 		//console.log("FM: " + frontMonth.MagicNumber + " /// " + backMonth.MagicNumber);
 		if (frontMonth.MagicNumber < backMonth.MagicNumber){
-			var str = "FYI: " + frontMonth.Name + " FM options are in play now (" + frontMonth.DTE + ")"; 
+			var str = "FYI: " + frontMonth.Name + " Options are in play now (" + frontMonth.DTE + " DTE)"; 
 			console.log(str);
 			once = false;
 			fncPushover(str);
 		} else if (frontMonth.MagicNumber >= backMonth.MagicNumber && frontMonth && backMonth && once){
-			var str = "FYI: " + backMonth.Name + " BM options are in play now (" + backMonth.DTE + ")"; 
+			var str = "FYI: " + backMonth.Name + " Options are in play now (" + backMonth.DTE + " DTE)"; 
 			console.log(str);
 			once = false;
 			fncPushover(str);
