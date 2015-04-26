@@ -87,7 +87,7 @@ for (var i = 0; i < ExpoCal.length; i++){
 	}
 
 	if (dateDiff < 22 && dateDiff > 14){
-		var str = ("FYI: watch your " + monthAbbr + " options; " + dateDiff+ " DTE")
+		var str = ("FYI: Watch your " + monthAbbr + " options, only " + dateDiff+ " DTE")
 		console.log(str)
 		fncPushover(str);
 	}
